@@ -1,0 +1,38 @@
+.headline {
+  display: block;
+  text-align: center;
+  padding-top: 30px;
+
+  &__logo-image {
+    background: url(../images/demo/logo-mask.png) center 0 no-repeat;
+    margin: 0 auto;
+    height: 200px;
+  }
+
+  &__header--small {
+    color: rgba(52, 73, 94, 0.3);
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding-top: 5px;
+  }
+}
+
+.btn {
+  @include col();
+  @include size-xl(2);
+  @include size-lg(2);
+  @include size-md(3);
+  @include size-sm(4);
+  @include size-xs(6);
+  @include size(12);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.col {
+  @include col();
+  @include size-sm(6);
+  @include size-xs(12);
+}

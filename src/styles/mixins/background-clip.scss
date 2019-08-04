@@ -1,0 +1,4 @@
+// Background clip
+@mixin background-clip($clip: border-box) {
+  background-clip: $clip;
+}
