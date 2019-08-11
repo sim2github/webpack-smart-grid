@@ -18,7 +18,7 @@
     color: $text-color;
   }
   // Set the border and box shadow on specific inputs to match
-  .form-control {
+  .form__control {
     color: $text-color;
     border-color: $border-color;
     box-shadow: none;
@@ -80,16 +80,6 @@
   font-size: $font-size;
   line-height: $line-height;
   border-radius: $border-radius;
-
-  // @at-root select#{&} {
-  //   height: $input-height;
-  //   line-height: $input-height;
-  // }
-
-  // @at-root textarea#{&},
-  // select[multiple]#{&} {
-  //   /height: auto;
-  // }
 }
 
 // Reset rounded corners for form controls

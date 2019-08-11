@@ -1,38 +1,58 @@
+%demo-h2 {
+  font-size: 32px;
+}
+%demo-h3 {
+  font-size: 24px;
+}
+
 .headline {
   display: block;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 60px;
 
-  &__logo-image {
-    background: url(../images/demo/logo-mask.png) center 0 no-repeat;
-    margin: 0 auto;
-    height: 200px;
+  &__h1 {
+    font-size: 45px;
+    line-height: 3.5rem;
+    @include sm(font-size, 56px);
+    @include md-block() {
+      font-size: 61px;
+      line-height: 4rem;
+    }
   }
 
-  &__header--small {
+  &__section-title {
+    @extend %demo-h2;
+  }
+
+  &__panel-title {
+    @extend %demo-h3;
+  }
+  &__logo-img {
+    margin: 0 auto;
+  }
+
+  &__logo-image {
+    background: url(../images/demo/logo-mask.png) center no-repeat;
+    background-size: contain;
+    height: 120px;
+    @include xs(height, 150px);
+    @include sm(height, 180px);
+  }
+
+  &__header_small {
     color: rgba(52, 73, 94, 0.3);
     display: block;
     font-size: 22px;
+    line-height: 2rem;
     font-weight: 700;
     letter-spacing: 0;
     padding-top: 5px;
+    @include xs(line-height, 3rem);
   }
 }
 
-.btn {
-  @include col();
-  @include size-xl(2);
-  @include size-lg(2);
-  @include size-md(3);
-  @include size-sm(4);
-  @include size-xs(6);
-  @include size(12);
-  text-align: center;
+.btn,
+.form {
   margin-bottom: 1rem;
-}
-
-.col {
-  @include col();
-  @include size-sm(6);
-  @include size-xs(12);
+  text-align: center;
 }

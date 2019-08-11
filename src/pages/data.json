@@ -1,0 +1,21 @@
+{
+  "title": "Flat UI - Smart Grid and Theme",
+  "description": "Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version.",
+  "headline": {
+    "title": "Smart Grid + Flat UI",
+    "subtitle": "Free User Interface Kit"
+  },
+  "btn": [
+    { "name": "Primary Button", "class": "btn_primary" },
+    { "name": "Warning Button", "class": "btn_warning" },
+    { "name": "Default Button", "class": "btn_default" },
+    { "name": "Danger Button", "class": "btn_danger" },
+    { "name": "Success Button", "class": "btn_success" },
+    { "name": "Inverse Button", "class": "btn_inverse" },
+    { "name": "Info Button", "class": "btn_info" },
+    {
+      "name": "Embossed Primary Button",
+      "class": "btn_primary btn_embossed"
+    }
+  ]
+}

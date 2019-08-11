@@ -25,14 +25,9 @@ textarea {
   line-height: 24px;
   padding: 5px 11px;
 
-  &.form-control {
+  &.control {
     height: auto;
   }
-}
-
-// Search
-input[type="search"] {
-  -webkit-appearance: none !important; // removes rounded corners for searchfields on iOS
 }
 
 // Label
@@ -64,52 +59,67 @@ label {
 // input[type="tel"]
 // input[type="color"]
 
-.form-control {
-  border: 2px solid $gray-light;
-  color: $brand-primary;
-  font-family: $font-family-base;
-  font-size: $input-font-size-base;
-  line-height: $input-line-height-base;
-  padding: 8px 12px;
-  height: 42px;
-  border-radius: $input-border-radius;
-  box-shadow: none;
-  transition: border 0.25s linear, color 0.25s linear,
-    background-color 0.25s linear;
-
-  // Customize the `:focus` state
-  @include form-control-focus();
-
-  // Disabled and read-only inputs
-  // Note: HTML5 says that controls under a fieldset > legend:first-child won't
-  // be disabled if the fieldset is disabled. Due to implementation difficulty,
-  // we don't honor that edge case; we style them as disabled anyway.
-  &[disabled],
-  &[readonly],
-  fieldset[disabled] & {
-    background-color: $input-bg-disabled;
-    border-color: mix($gray, white, 40%);
-    color: mix($gray, white, 40%);
-    cursor: default;
-    opacity: 0.7;
+.form {
+  // Feedback states
+  &_success {
+    @include form-control-validation($brand-success, $brand-success);
+  }
+  &_warning {
+    @include form-control-validation($brand-warning, $brand-warning);
+  }
+  &_error {
+    @include form-control-validation($brand-danger, $brand-danger);
   }
 
-  // Flat (without border)
-  &.flat {
-    border-color: transparent;
+  &__control {
+    width: 100%;
+    margin: 0;
+    border: 2px solid $gray-light;
+    color: $brand-primary;
+    font-family: $font-family-base;
+    font-size: $input-font-size-base;
+    line-height: $input-line-height-base;
+    padding: 8px 12px;
+    height: 42px;
+    border-radius: $input-border-radius;
+    box-shadow: none;
+    transition: border 0.25s linear, color 0.25s linear,
+      background-color 0.25s linear;
 
-    &:hover {
-      border-color: $gray-light;
+    // Customize the `:focus` state
+    @include form-control-focus();
+
+    // Disabled and read-only inputs
+    // Note: HTML5 says that controls under a fieldset > legend:first-child won't
+    // be disabled if the fieldset is disabled. Due to implementation difficulty,
+    // we don't honor that edge case; we style them as disabled anyway.
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+      background-color: $input-bg-disabled;
+      border-color: mix($gray, white, 40%);
+      color: mix($gray, white, 40%);
+      cursor: default;
+      opacity: 0.7;
     }
-    &:focus {
-      border-color: $brand-secondary;
+
+    // Flat (without border)
+    &_flat {
+      border-color: transparent;
+
+      &:hover {
+        border-color: $gray-light;
+      }
+      &:focus {
+        border-color: $brand-secondary;
+      }
     }
   }
 }
 
 // Form control sizing
 .input-sm,
-.form-group-sm .form-control {
+.form-group_sm .form-control {
   @include input-size(
     $input-height-sm,
     6px,
@@ -183,17 +193,6 @@ label {
   padding-right: 10px;
 }
 
-// Feedback states
-.has-success {
-  @include form-control-validation($brand-success, $brand-success);
-}
-.has-warning {
-  @include form-control-validation($brand-warning, $brand-warning);
-}
-.has-error {
-  @include form-control-validation($brand-danger, $brand-danger);
-}
-
 .form-control[disabled] + .form-control-feedback,
 .form-control[readonly] + .form-control-feedback,
 fieldset[disabled] .form-control + .form-control-feedback,
@@ -250,11 +249,6 @@ fieldset[disabled] .form-control + .form-control-feedback,
       padding-top: 3px;
       padding-bottom: 3px;
     }
-  }
-
-  // Make form groups behave like rows
-  .form-group {
-    @include row-flex();
   }
 
   .form-control-static {

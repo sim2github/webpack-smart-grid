@@ -29,8 +29,8 @@
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
 
-.btn-group-xs > .btn {
-  @extend .btn--xs;
+.btn-group_xs > .btn {
+  @extend .btn_xs;
 
   & + .dropdown-toggle {
     padding: 6px 9px;
@@ -38,7 +38,7 @@
 }
 
 .btn-group-sm > .btn {
-  @extend .btn--sm;
+  @extend .btn_sm;
 
   & + .dropdown-toggle {
     padding: 9px 13px;
@@ -46,7 +46,7 @@
 }
 
 .btn-group-lg > .btn {
-  @extend .btn--lg;
+  @extend .btn_lg;
 
   & + .dropdown-toggle {
     padding: 10px 19px;
@@ -54,7 +54,7 @@
 }
 
 .btn-group-hg > .btn {
-  @extend .btn--hg;
+  @extend .btn_hg;
 
   & + .dropdown-toggle {
     padding: 13px 20px;
@@ -66,15 +66,15 @@
 //   border-width: $caret-width-xs-vertical $caret-width-xs 0;
 //   border-bottom-width: 0;
 // }
-.btn--lg .caret {
+.btn_lg .caret {
   border-width: $caret-width-base-vertical $caret-width-base 0;
   border-bottom-width: 0;
 }
 // Upside down carets for .dropup
-.dropup .btn--lg .caret {
+.dropup .btn_lg .caret {
   border-width: 0 $caret-width-base $caret-width-base-vertical;
 }
-.dropup .btn--xs .caret {
+.dropup .btn_xs .caret {
   border-width: 0 $caret-width-xs $caret-width-xs-vertical;
 }
 
