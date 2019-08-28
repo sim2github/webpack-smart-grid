@@ -2,15 +2,19 @@
 // Scaffolding
 // --------------------------------------------------
 
-* {
+*,
+::before,
+::after {
+  box-sizing: border-box;
   outline: none;
-  // outline: none !important;
 }
 
 // Body reset
 // -------------------------
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;

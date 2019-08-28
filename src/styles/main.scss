@@ -48,17 +48,6 @@
 //Print styles
 @import "modules/print";
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-
 .debug {
   z-index: -9999;
   @include debug(#fcfcfc, 1px dashed #dfdfdfdf);
@@ -70,10 +59,10 @@ body {
 
 .row {
   @include row-flex();
-}
 
-.row_center {
-  align-items: center;
+  &_center {
+    align-items: center;
+  }
 }
 
 .col {
@@ -83,6 +72,13 @@ body {
   @include size-sm(4);
   @include size-md(3);
   @include size-lg(2);
+
+  &_double {
+    @include size(12);
+    @include size-sm(6);
+    @include size-md(6);
+    @include size-lg(4);
+  }
 }
 
 @import "demo";

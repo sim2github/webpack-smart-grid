@@ -9,11 +9,11 @@
     margin-left: 8px;
     vertical-align: middle;
     content: "";
-    border-top:   $caret-width-base-vertical solid;
+    border-top: $caret-width-base-vertical solid;
     border-right: $caret-width-base solid transparent;
-    border-left:  $caret-width-base solid transparent;
+    border-left: $caret-width-base solid transparent;
     border-bottom: 0;
-    transition: border-color .25s, color .25s;
+    transition: border-color 0.25s, color 0.25s;
 
     .dropup & {
       border-top: 0;
@@ -28,6 +28,14 @@
 
 // The dropdown menu (ul)
 .dropdown-menu {
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
   z-index: $zindex-dropdown;
   background-color: $dropdown-bg;
   min-width: 220px;

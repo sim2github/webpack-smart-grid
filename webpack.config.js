@@ -12,6 +12,7 @@ const webpack = require("webpack"),
   CleanWebpackPlugin = require("clean-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin"),
+  SpriteLoaderPlugin = require("svg-sprite-loader/plugin"),
   TerserPlugin = require("terser-webpack-plugin");
 
 let CONF = {
@@ -118,8 +119,10 @@ module.exports = (env = {}, argv) => {
         new webpack.NoEmitOnErrorsPlugin(),
         new CleanWebpackPlugin(CONF.clean),
         new CopyWebpackPlugin(CONF.copy),
-        new ImageminWebpWebpackPlugin()
+        new ImageminWebpWebpackPlugin(),
+        new SpriteLoaderPlugin()
       ];
+
       for (let file of glob.sync(CONF.pages)) {
         common.push(
           new HtmlWebpackPlugin({
@@ -192,7 +195,7 @@ module.exports = (env = {}, argv) => {
           ]
         },
         {
-          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?(\?[\s\S]+)?$/,
+          test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?(\?[\s\S]+)?$/,
           use:
             "file-loader?name=[name].[ext]&outputPath=fonts/&publicPath=/fonts/"
         },
@@ -220,6 +223,19 @@ module.exports = (env = {}, argv) => {
                 }
               }
             }
+          ]
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: "svg-sprite-loader",
+              options: {
+                extract: true,
+                spriteFilename: "sprite.svg"
+              }
+            },
+            "svgo-loader"
           ]
         }
       ]

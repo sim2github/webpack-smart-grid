@@ -8,6 +8,7 @@
     </h1>
 </div>
 
+{{!-- Basic buttons --}}
 <h2 class="section-title">Basic elements</h2>
 <h3 class="panel-title">Buttons</h3>
 <div class="row row_center">
@@ -24,15 +25,91 @@
     </div>
     <div class="col form form_error">
         <input class="form__control" type="text" value="" placeholder="Error">
-
     </div>
     <div class="col form form_success">
         <input class="form__control" type="text" value="" placeholder="Success">
-        <span class="form__icon fui-check-inverted"></span>
+        <span class="form__icon fui-check"></span>
     </div>
     <div class="col form">
         <input class="form__control" type="text" value="Disabled" disabled="disabled">
     </div>
 </div>
 
+<div class="row">
+    <div class="col">
+        <h3 class="panel-title">Dropdown</h3>
+
+        <div class="btn-group">
+            <button data-toggle="dropdown" class="btn btn_primary dropdown-toggle" type="button">
+                Default <span class="caret"></span>
+            </button>
+            <ul role="menu" class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+        <!-- /btn-group -->
+    </div>
+    <!-- /.col -->
+    <div class="col">
+        <h3 class="panel-title">Select</h3>
+        <select class="form__control select select_primary" data-toggle="select">
+            <option value="1">Spider Man</option>
+            <option value="2">Wolverine</option>
+            <option value="3">Captain America</option>
+            <option value="4" selected>X-Men</option>
+            <option value="5">Crocodile</option>
+        </select>
+    </div>
+    <!-- /.col -->
+    <div class="col col_double">
+        <h3 class="panel-title">Tags input</h3>
+        <div class="tagsinput_primary">
+            <input name="tagsinput" class="tagsinput" data-role="tagsinput" value="School, Teacher, Colleague" />
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+<h3 class="panel-title">Navbar</h3>
+<div class="row">
+    <nav class="navbar navbar_inverse navbar_embossed navbar_expand-lg" role="navigation">
+        <a class="navbar__brand" href="#">Flat UI</a>
+        <button type="button" class="navbar__toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+        <div class="collapse navbar__collapse" id="navbar-collapse-01">
+            <ul class="nav navbar__nav mr-auto">
+                <li>
+                    <a href="#">Menu Item<span class="navbar-unread">1</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown__toggle" data-toggle="dropdown">Messages</a>
+                    <span class="dropdown__arrow"></span>
+                    <ul class="dropdown__menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <form class="navbar__form form__inline my-2 my-lg-0" action="#" role="search">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form__control" id="navbarInput-01" type="search" placeholder="Search" />
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn">
+                                <span class="fui-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>
 {{/ base}}

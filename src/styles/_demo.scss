@@ -1,7 +1,8 @@
-%demo-h2 {
+.section-title {
   font-size: 32px;
 }
-%demo-h3 {
+
+.panel-title {
   font-size: 24px;
 }
 
@@ -20,13 +21,6 @@
     }
   }
 
-  &__section-title {
-    @extend %demo-h2;
-  }
-
-  &__panel-title {
-    @extend %demo-h3;
-  }
   &__logo-img {
     margin: 0 auto;
   }
