@@ -1,9 +1,9 @@
-import "styles/main.scss";
+import 'styles/main.scss'
 
-import "scripts/onload";
+import 'scripts/onload'
 
-function importAll(r) {
-  r.keys().forEach(r);
+function importAll (r) {
+  r.keys().forEach(r)
 }
 
-importAll(require.context("icons", false, /\.svg$/));
+importAll(require.context('icons', false, /\.svg$/))

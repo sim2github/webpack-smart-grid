@@ -1,105 +1,106 @@
-const webpack = require("webpack"),
-  SGconf = require("smart-grid"),
-  path = require("path"),
-  glob = require("glob"),
-  csso = require("postcss-csso"),
-  autoprefixer = require("autoprefixer"),
-  mqpacker = require("css-mqpacker"),
-  sortCSSmq = require("sort-css-media-queries"),
-  CopyWebpackPlugin = require("copy-webpack-plugin"),
-  chokidar = require("chokidar"),
-  HtmlWebpackPlugin = require("html-webpack-plugin"),
-  CleanWebpackPlugin = require("clean-webpack-plugin"),
-  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-  ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin"),
-  SpriteLoaderPlugin = require("svg-sprite-loader/plugin"),
-  TerserPlugin = require("terser-webpack-plugin");
+const webpack = require('webpack')
+const SGconf = require('smart-grid')
+const path = require('path')
+const glob = require('glob')
+const csso = require('postcss-csso')
+const autoprefixer = require('autoprefixer')
+const mqpacker = require('css-mqpacker')
+const sortCSSmq = require('sort-css-media-queries')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const chokidar = require('chokidar')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 let CONF = {
   entry: {
-    main: "src/main.js"
+    main: 'src/main.js'
   },
-  src: "src",
-  dist: "dist",
-  clean: "dist",
-  watch: ["src/pages/**/*.hbs"],
-  pages: "src/pages/*.hbs",
-  data: "src/pages/data.json",
+  src: 'src',
+  dist: 'dist',
+  clean: 'dist',
+  watch: ['src/pages/**/*.hbs'],
+  pages: 'src/pages/*.hbs',
+  data: 'src/pages/data.json',
   hbsOptions: {
-    helperDirs: ["src/pages/helpers"],
-    partialDirs: ["src/pages/partials"]
+    helperDirs: ['src/pages/helpers'],
+    partialDirs: ['src/pages/partials']
   },
   copy: [
     {
-      from: "src/images",
-      to: "dist/images",
-      type: "dir"
+      from: 'src/images',
+      to: 'dist/images',
+      type: 'dir'
     },
     {
-      from: "src/fonts",
-      to: "dist/fonts",
-      type: "dir"
+      from: 'src/fonts',
+      to: 'dist/fonts',
+      type: 'dir'
     },
     {
-      from: "src/favicon.ico",
-      to: "dist/favicon.ico",
-      type: "file"
+      from: 'src/favicon.ico',
+      to: 'dist/favicon.ico',
+      type: 'file'
     }
   ]
-};
-
-function absPath(obj, fn) {
-  const handler = val => (typeof val === "object" ? absPath(val, fn) : fn(val));
-  if (Array.isArray(obj)) {
-    return obj.map(handler);
-  }
-  if (typeof obj === "object") {
-    return Object.keys(obj).reduce((res, key) => {
-      res[key] = handler(obj[key]);
-      return res;
-    }, {});
-  }
-  return obj;
 }
 
-CONF = absPath(CONF, p => path.join(__dirname, p));
+function absPath(obj, fn) {
+  const handler = val => (typeof val === 'object' ? absPath(val, fn) : fn(val))
+  if (Array.isArray(obj)) {
+    return obj.map(handler)
+  }
+  if (typeof obj === 'object') {
+    return Object.keys(obj).reduce((res, key) => {
+      res[key] = handler(obj[key])
+      return res
+    }, {})
+  }
+  return obj
+}
 
-module.exports = (env = {}, argv) => {
+CONF = absPath(CONF, p => path.join(__dirname, p))
+
+// eslint-disable-next-line no-unused-vars
+module.exports = (_ = {}, argv) => {
   const isDEV =
-    process.env.NODE_ENV === "development" || argv.mode === "development";
+    process.env.NODE_ENV === 'development' || argv.mode === 'development'
 
-  let config = {
-    mode: isDEV ? "development" : "production",
-    devtool: isDEV ? "inline-cheap-source-map" : "none",
+  const config = {
+    mode: isDEV ? 'development' : 'production',
+    devtool: isDEV ? 'inline-cheap-source-map' : 'none',
     context: CONF.src,
     entry: CONF.entry,
     output: {
       path: CONF.dist,
-      filename: isDEV ? "[name].js" : "[name].[chunkhash].js"
+      filename: isDEV ? '[name].js' : '[name].[chunkhash].js'
     },
     watch: isDEV,
     devServer: {
-      host: "0.0.0.0",
+      host: '0.0.0.0',
       port: 9000,
       overlay: true,
       before(app, server) {
-        chokidar.watch(CONF.watch, {}).on("all", () => {
-          server.sockWrite(server.sockets, "content-changed");
-        });
+        chokidar.watch(CONF.watch, {}).on('all', () => {
+          server.sockWrite(server.sockets, 'content-changed')
+        })
       }
     },
     resolve: {
-      extensions: [".js", ".json"],
-      modules: [path.join(__dirname, "node_modules"), CONF.src]
+      extensions: ['.js', '.json'],
+      modules: [path.join(__dirname, 'node_modules'), CONF.src]
     },
     optimization: {
       splitChunks: {
         cacheGroups: {
           shared: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendor",
+            name: 'vendor',
             enforce: true,
-            chunks: "all"
+            chunks: 'all'
           }
         }
       },
@@ -114,57 +115,57 @@ module.exports = (env = {}, argv) => {
       ]
     },
     plugins: (() => {
-      let common = [
+      const common = [
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new CleanWebpackPlugin(CONF.clean),
         new CopyWebpackPlugin(CONF.copy),
         new ImageminWebpWebpackPlugin(),
         new SpriteLoaderPlugin()
-      ];
+      ]
 
-      for (let file of glob.sync(CONF.pages)) {
+      for (const file of glob.sync(CONF.pages)) {
         common.push(
           new HtmlWebpackPlugin({
             template: file,
-            filename: path.join(CONF.dist, path.parse(file).name + ".html"),
-            inject: "head",
-            minify: isDEV ? false : true,
+            filename: path.join(CONF.dist, `${path.parse(file).name}.html`),
+            inject: 'head',
+            minify: !isDEV,
             templateParameters(compilation) {
-              compilation.fileDependencies.add(CONF.data);
-              delete require.cache[require.resolve(CONF.data)];
-              return require(CONF.data);
+              compilation.fileDependencies.add(CONF.data)
+              delete require.cache[require.resolve(CONF.data)]
+              return require(CONF.data)
             }
           })
-        );
+        )
       }
 
       const production = [
         new MiniCssExtractPlugin({
           path: CONF.dist,
-          filename: isDEV ? "[name].css" : "[name].[contenthash].css",
+          filename: isDEV ? '[name].css' : '[name].[contenthash].css',
           chunkFilename: isDEV
-            ? "[name].[id].css"
-            : "[name].[id].[contenthash].css"
+            ? '[name].[id].css'
+            : '[name].[id].[contenthash].css'
         })
-      ];
+      ]
 
-      const development = [];
+      const development = []
 
-      return isDEV ? common.concat(development) : common.concat(production);
+      return isDEV ? common.concat(development) : common.concat(production)
     })(),
 
     module: {
       rules: [
         {
           test: /\.hbs$/,
-          loader: "handlebars-loader",
+          loader: 'handlebars-loader',
           options: CONF.hbsOptions
         },
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: "babel-loader",
+          loader: 'babel-loader',
           query: {
             cacheDirectory: true
           }
@@ -172,10 +173,10 @@ module.exports = (env = {}, argv) => {
         {
           test: /\.s?css$/,
           use: [
-            isDEV ? "style-loader?sourceMap=true" : MiniCssExtractPlugin.loader,
+            isDEV ? 'style-loader?sourceMap=true' : MiniCssExtractPlugin.loader,
             `css-loader?sourceMap=${isDEV}`,
             {
-              loader: "postcss-loader",
+              loader: 'postcss-loader',
               options: {
                 sourceMap: isDEV,
                 plugins() {
@@ -187,7 +188,7 @@ module.exports = (env = {}, argv) => {
                         ? sortCSSmq
                         : sortCSSmq.desktopFirst
                     })
-                  ];
+                  ]
                 }
               }
             },
@@ -197,14 +198,14 @@ module.exports = (env = {}, argv) => {
         {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?(\?[\s\S]+)?$/,
           use:
-            "file-loader?name=[name].[ext]&outputPath=fonts/&publicPath=/fonts/"
+            'file-loader?name=[name].[ext]&outputPath=fonts/&publicPath=/fonts/'
         },
         {
           test: /\.(jpe?g|png|gif)$/i,
           use: [
-            "file-loader?name=images/[name].[ext]",
+            'file-loader?name=images/[name].[ext]',
             {
-              loader: "image-webpack-loader",
+              loader: 'image-webpack-loader',
               options: {
                 bypassOnDebug: true,
                 mozjpeg: {
@@ -215,7 +216,7 @@ module.exports = (env = {}, argv) => {
                   enabled: true
                 },
                 pngquant: {
-                  quality: "65-90",
+                  quality: '65-90',
                   speed: 4
                 },
                 gifsicle: {
@@ -229,18 +230,18 @@ module.exports = (env = {}, argv) => {
           test: /\.svg$/,
           use: [
             {
-              loader: "svg-sprite-loader",
+              loader: 'svg-sprite-loader',
               options: {
                 extract: true,
-                spriteFilename: "sprite.svg"
+                spriteFilename: 'sprite.svg'
               }
             },
-            "svgo-loader"
+            'svgo-loader'
           ]
         }
       ]
     }
-  };
+  }
 
-  return config;
-};
+  return config
+}
