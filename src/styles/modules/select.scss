@@ -168,7 +168,7 @@
       .select2-arrow {
         right: 20px;
       }
-      > [class^="fui-"] {
+      > [class^='fui-'] {
         top: 2px;
       }
     }
@@ -318,8 +318,8 @@
     transition: opacity 0.25s linear;
 
     &:after {
-      content: "\e609";
-      font-family: "Flat-UI-Pro-Icons";
+      content: '\e609';
+      font-family: 'Flat-UI-Pro-Icons';
       line-height: 27px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -332,7 +332,7 @@
 
 // Multiselect search field
 .select2-search-field {
-  input[type="text"] {
+  input[type='text'] {
     color: $multiselect-input-color;
     font-size: ceil(($component-font-size-base * 0.933)); // 14px;
     border: none;
@@ -347,7 +347,7 @@
     vertical-align: top;
     height: 29px;
   }
-  &:first-child input[type="text"] {
+  &:first-child input[type='text'] {
     height: 23px;
     margin: 3px 0 5px;
   }
@@ -559,7 +559,7 @@
   display: inline-block;
   white-space: nowrap;
 
-  input[type="text"] {
+  input[type='text'] {
     //@extend(.form-control all, .input-sm all);
     @extend .form-control;
     @extend .input-sm;

@@ -48,7 +48,7 @@
     filter: none;
 
     &:before {
-      font-family: "Flat-UI-Pro-Icons";
+      font-family: 'Flat-UI-Pro-Icons';
       font-style: normal;
       font-weight: normal;
       font-variant: normal;
@@ -60,25 +60,25 @@
 }
 .checkbox {
   .icon-checked:before {
-    content: "\e60e";
+    content: '\e60e';
   }
   .icon-unchecked:before {
-    content: "\e60d";
+    content: '\e60d';
   }
 }
 .radio {
   .icon-checked:before {
-    content: "\e60c";
+    content: '\e60c';
   }
   .icon-unchecked:before {
-    content: "\e60b";
+    content: '\e60b';
   }
 }
 
 .checkbox,
 .radio {
-  input[type="checkbox"].custom-checkbox,
-  input[type="radio"].custom-radio {
+  input[type='checkbox'].custom-checkbox,
+  input[type='radio'].custom-radio {
     outline: none !important;
     opacity: 0;
     position: absolute;
@@ -159,7 +159,7 @@
         opacity: 0;
       }
       &:before {
-        content: "\2013";
+        content: '\2013';
         position: absolute;
         top: 0;
         left: 0;
@@ -183,8 +183,8 @@
 
   // Primary
 
-  &.primary input[type="checkbox"].custom-checkbox,
-  &.primary input[type="radio"].custom-radio {
+  &.primary input[type='checkbox'].custom-checkbox,
+  &.primary input[type='radio'].custom-radio {
     & + .icons {
       color: $brand-primary;
     }

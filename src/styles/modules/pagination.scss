@@ -38,14 +38,16 @@
 
     // Pseudos and states
     &.active {
-      > a, > span {
+      > a,
+      > span {
         background-color: $pagination-hover-bg;
         color: $inverse;
         border-color: mix($pagination-bg, white, 80%);
       }
       &.previous,
       &.next {
-        > a, > span {
+        > a,
+        > span {
           margin: 0;
 
           &,
@@ -103,14 +105,14 @@
       > a,
       > span {
         color: $pagination-color;
-        background-color: rgba($inverse, .30);
+        background-color: rgba($inverse, 0.3);
         border-right-color: mix($pagination-bg, white, 80%);
         cursor: $cursor-disabled;
 
         &:hover,
         &:focus,
         &:active {
-          background-color: rgba($inverse, .40);
+          background-color: rgba($inverse, 0.4);
           color: $pagination-color;
         }
       }
@@ -148,7 +150,7 @@
       outline: none;
       padding: 12px 10px;
       text-align: center;
-      transition: .25s ease-out;
+      transition: 0.25s ease-out;
 
       &:hover,
       &:focus {
@@ -172,7 +174,7 @@
       padding-left: 23px;
       padding-right: 23px;
 
-      [class*="fui-"] {
+      [class*='fui-'] {
         font-size: $icon-normal;
         margin-left: -2px;
         margin-top: -2px;
@@ -183,7 +185,7 @@
       margin-left: 8px;
       margin-right: 0;
 
-      [class*="fui-"] {
+      [class*='fui-'] {
         margin-right: -2px;
         margin-left: 4px;
       }
@@ -203,13 +205,27 @@
           border-bottom: 2px solid mix($pagination-bg, white, 80%);
           border-radius: $pagination-border-radius 0 0;
 
-          &.btn-primary { border-bottom-color: mix($brand-secondary, white, 80%); }
-          &.btn-danger  { border-bottom-color: mix($brand-danger, white, 80%); }
-          &.btn-warning { border-bottom-color: mix($brand-warning, white, 80%); }
-          &.btn-success { border-bottom-color: mix($brand-success, white, 80%); }
-          &.btn-info    { border-bottom-color: mix($brand-info, white, 80%); }
-          &.btn-inverse { border-bottom-color: mix($brand-primary, white, 80%); }
-          > [class*="fui"] { margin-left: -20px; }
+          &.btn-primary {
+            border-bottom-color: mix($brand-secondary, white, 80%);
+          }
+          &.btn-danger {
+            border-bottom-color: mix($brand-danger, white, 80%);
+          }
+          &.btn-warning {
+            border-bottom-color: mix($brand-warning, white, 80%);
+          }
+          &.btn-success {
+            border-bottom-color: mix($brand-success, white, 80%);
+          }
+          &.btn-info {
+            border-bottom-color: mix($brand-info, white, 80%);
+          }
+          &.btn-inverse {
+            border-bottom-color: mix($brand-primary, white, 80%);
+          }
+          > [class*='fui'] {
+            margin-left: -20px;
+          }
         }
         & + ul {
           padding: 0;
@@ -223,13 +239,27 @@
           top: 0;
           border-radius: 0 $pagination-border-radius 0 0;
 
-          &.btn-primary { border-bottom-color: mix($brand-secondary, white, 80%); }
-          &.btn-danger  { border-bottom-color: mix($brand-danger, white, 80%); }
-          &.btn-warning { border-bottom-color: mix($brand-warning, white, 80%); }
-          &.btn-success { border-bottom-color: mix($brand-success, white, 80%); }
-          &.btn-info    { border-bottom-color: mix($brand-info, white, 80%); }
-          &.btn-inverse { border-bottom-color: mix($brand-primary, white, 80%); }
-          > [class*="fui"] { margin-right: -20px; }
+          &.btn-primary {
+            border-bottom-color: mix($brand-secondary, white, 80%);
+          }
+          &.btn-danger {
+            border-bottom-color: mix($brand-danger, white, 80%);
+          }
+          &.btn-warning {
+            border-bottom-color: mix($brand-warning, white, 80%);
+          }
+          &.btn-success {
+            border-bottom-color: mix($brand-success, white, 80%);
+          }
+          &.btn-info {
+            border-bottom-color: mix($brand-info, white, 80%);
+          }
+          &.btn-inverse {
+            border-bottom-color: mix($brand-primary, white, 80%);
+          }
+          > [class*='fui'] {
+            margin-right: -20px;
+          }
         }
       }
 
@@ -248,11 +278,41 @@
 
 // Alternate Colors
 // --------------------------------------------------
-.pagination-danger  { @include pagination-variant($brand-danger, $btn-danger-hover-bg, $btn-danger-active-bg); }
-.pagination-success { @include pagination-variant($brand-success, $btn-success-hover-bg, $btn-success-active-bg); }
-.pagination-warning { @include pagination-variant($brand-warning, $btn-warning-hover-bg, $btn-warning-active-bg); }
-.pagination-info    { @include pagination-variant($brand-info, $btn-info-hover-bg, $btn-info-active-bg); }
-.pagination-inverse { @include pagination-variant($brand-primary, $btn-inverse-hover-bg, $btn-inverse-active-bg); }
+.pagination-danger {
+  @include pagination-variant(
+    $brand-danger,
+    $btn-danger-hover-bg,
+    $btn-danger-active-bg
+  );
+}
+.pagination-success {
+  @include pagination-variant(
+    $brand-success,
+    $btn-success-hover-bg,
+    $btn-success-active-bg
+  );
+}
+.pagination-warning {
+  @include pagination-variant(
+    $brand-warning,
+    $btn-warning-hover-bg,
+    $btn-warning-active-bg
+  );
+}
+.pagination-info {
+  @include pagination-variant(
+    $brand-info,
+    $btn-info-hover-bg,
+    $btn-info-active-bg
+  );
+}
+.pagination-inverse {
+  @include pagination-variant(
+    $brand-primary,
+    $btn-inverse-hover-bg,
+    $btn-inverse-active-bg
+  );
+}
 
 // Ultra minimal pagination
 // --------------------------------------------------
@@ -343,14 +403,16 @@
         padding: 0 4px;
         border-radius: 50px;
         background-clip: padding-box;
-        transition: background .2s ease-out, border-color 0s ease-out, color .2s ease-out;
+        transition: background 0.2s ease-out, border-color 0s ease-out,
+          color 0.2s ease-out;
 
         &:hover,
         &:focus {
           background-color: $pagination-hover-bg;
           border-color: $pagination-hover-bg;
           color: $inverse;
-          transition: background .2s ease-out, border-color .2s ease-out, color .2s ease-out;
+          transition: background 0.2s ease-out, border-color 0.2s ease-out,
+            color 0.2s ease-out;
         }
         &:active {
           background-color: mix($brand-secondary, black, 85%);
@@ -501,6 +563,4 @@
       }
     }
   }
-
-
 }

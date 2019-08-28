@@ -142,7 +142,7 @@
     padding: (($navbar-height-base - 25px) / 2) 21px;
   }
 
-  > [class*="fui-"] {
+  > [class*='fui-'] {
     font-size: floor(($component-font-size-base * 1.267)); // ~19px
     line-height: 1.263; // ~24px
     vertical-align: top;
@@ -172,8 +172,8 @@
 
   &:before {
     color: $link-color;
-    content: "\e61a";
-    font-family: "Flat-UI-Pro-Icons";
+    content: '\e61a';
+    font-family: 'Flat-UI-Pro-Icons';
     font-size: floor(($component-font-size-base * 1.467)); // ~22px
     font-style: normal;
     font-weight: normal;
@@ -222,7 +222,7 @@
     background-color: transparent;
   }
 
-  [class^="fui-"] {
+  [class^='fui-'] {
     line-height: 20px;
     position: relative;
     top: 1px;
@@ -231,7 +231,7 @@
   }
   .visible-sm,
   .visible-xs {
-    > [class^="fui-"] {
+    > [class^='fui-'] {
       margin-left: 12px;
     }
   }
@@ -826,7 +826,7 @@
       padding-bottom: (($navbar-height-large - 24px) / 2);
     }
 
-    > [class*="fui-"] {
+    > [class*='fui-'] {
       font-size: floor(($component-font-size-base * 1.6)); // ~24px
       line-height: 1;
     }

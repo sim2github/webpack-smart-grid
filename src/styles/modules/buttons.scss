@@ -230,7 +230,7 @@
     @include social-button-variant($btn-default-color, $social-twitter);
   }
   // Button icons
-  [class^="fui-"] {
+  [class^='fui-'] {
     margin: 0 1px;
     position: relative;
     line-height: 1;
@@ -249,7 +249,7 @@
 // Social Buttons
 // --------------------------------------------------
 
-[class*="btn_social-"] {
+[class*='btn_social-'] {
   @include button-size(
     10px,
     15px,

@@ -47,10 +47,10 @@
       }
 
       // Add some spacing between the icon and text
-      [class*="fui-"] + span {
+      [class*='fui-'] + span {
         margin-left: 8px;
       }
-      span + [class*="fui-"] {
+      span + [class*='fui-'] {
         margin-left: 8px;
       }
     }

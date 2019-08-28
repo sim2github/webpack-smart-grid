@@ -42,7 +42,7 @@
       width: 66px;
       transition: box-shadow 0.25s ease-out;
 
-      > [class^="fui-"] {
+      > [class^='fui-'] {
         text-indent: 0;
       }
     }
@@ -62,8 +62,8 @@
     }
   }
 
-  input[type="radio"],
-  input[type="checkbox"] {
+  input[type='radio'],
+  input[type='checkbox'] {
     position: absolute !important;
     margin: 0;
     top: 0;
@@ -101,7 +101,7 @@
 
   &:before {
     display: inline-block;
-    content: " ";
+    content: ' ';
     border: 4px solid transparent;
     border-radius: 50%;
     text-align: center;

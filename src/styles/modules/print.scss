@@ -14,23 +14,24 @@
   .ui-datepicker,
   .ui-timepicker-wrapper,
   .tt-dropdown-menu {
-    background: #fff !important;  
+    background: #fff !important;
     border: 2px solid #ddd;
   }
-  .ui-datepicker .ui-datepicker-prev, 
+  .ui-datepicker .ui-datepicker-prev,
   .ui-datepicker .ui-datepicker-next {
     display: none;
   }
   .input-group-rounded .input-group-btn {
-    & + .form-control, 
-    & + .select2-search input[type="text"] {
+    & + .form-control,
+    & + .select2-search input[type='text'] {
       padding-left: 10px;
     }
   }
   .form-control {
     border: 2px solid #ddd !important;
   }
-  .popover, .nav-pills {
+  .popover,
+  .nav-pills {
     border: 2px solid #ddd;
   }
   .popover .popover-title {
@@ -41,21 +42,25 @@
     width: 84px;
     border: 2px solid #bdc3c7;
   }
-  .ui-spinner-button, .tooltip {
+  .ui-spinner-button,
+  .tooltip {
     border: 2px solid #bdc3c7;
   }
   .carousel-caption {
     background: rgba(255, 255, 255, 0.8) !important;
   }
-  .progress, .ui-slider {
+  .progress,
+  .ui-slider {
     background: #ddd !important;
   }
-  .progress-bar, .ui-slider-range, .ui-slider-handle {
+  .progress-bar,
+  .ui-slider-range,
+  .ui-slider-handle {
     background: #bdc3c7 !important;
   }
   .tile {
     a:after {
-      content: "";
+      content: '';
     }
   }
 }

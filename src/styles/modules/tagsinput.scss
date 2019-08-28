@@ -42,8 +42,8 @@
       z-index: 2;
 
       &:after {
-        content: "\e609";
-        font-family: "Flat-UI-Pro-Icons";
+        content: '\e609';
+        font-family: 'Flat-UI-Pro-Icons';
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         line-height: 27px;
@@ -80,7 +80,7 @@
     }
   }
 
-  input[type="text"] {
+  input[type='text'] {
     font-size: ceil(($component-font-size-base * 0.933)); // 14px;
     border: none;
     box-shadow: none;
