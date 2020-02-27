@@ -20,8 +20,8 @@ let CONF = {
     main: 'src/main.js'
   },
   src: 'src',
-  dist: 'dist',
-  clean: 'dist',
+  dist: 'build',
+  clean: 'build',
   watch: ['src/pages/**/*.hbs'],
   pages: 'src/pages/*.hbs',
   data: 'src/pages/data.json',
@@ -40,6 +40,11 @@ let CONF = {
     //   to: 'dist/fonts',
     //   type: 'dir'
     // },
+    {
+      from: 'src/.nojekyll',
+      to: 'dist/.nojekyll',
+      type: 'file'
+    },
     {
       from: 'src/favicon.ico',
       to: 'dist/favicon.ico',
