@@ -35,11 +35,11 @@ let CONF = {
       to: 'dist/images',
       type: 'dir'
     },
-    {
-      from: 'src/fonts',
-      to: 'dist/fonts',
-      type: 'dir'
-    },
+    // {
+    //   from: 'src/fonts',
+    //   to: 'dist/fonts',
+    //   type: 'dir'
+    // },
     {
       from: 'src/favicon.ico',
       to: 'dist/favicon.ico',
@@ -118,7 +118,6 @@ module.exports = (_ = {}, argv) => {
       const common = [
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new CleanWebpackPlugin(CONF.clean),
         new CopyWebpackPlugin(CONF.copy),
         new ImageminWebpWebpackPlugin(),
         new SpriteLoaderPlugin()
@@ -147,7 +146,8 @@ module.exports = (_ = {}, argv) => {
           chunkFilename: isDEV
             ? '[name].[id].css'
             : '[name].[id].[contenthash].css'
-        })
+        }),
+        new CleanWebpackPlugin(CONF.clean)
       ]
 
       const development = []

@@ -2,14 +2,14 @@ dist: trusty
 sudo: false
 language: node_js
 node_js:
-  - "12"
-    #cache:
-    #directories:
-    #- .npm
-    #- node_modules
+  - "13"
+cache:
+  directories:
+    - .npm
+    - node_modules
 install:
   - npm i
-  - rm -rf public || exit 0
+  - rm -rf build || exit 0
 script:
     - npm run build
 deploy:
@@ -17,7 +17,7 @@ deploy:
   #skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   verbose: true
-  local-dir: public
+  local-dir: build
   keep-history: true
   target_branch: gh-pages
   on:
