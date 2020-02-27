@@ -16,7 +16,7 @@ deploy:
   skip_cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   verbose: true
-  local-dir: docs
+  local-dir: build
   keep-history: true
   on:
     branch: master
