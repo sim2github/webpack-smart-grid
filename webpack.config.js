@@ -86,7 +86,7 @@ module.exports = (_ = {}, argv) => {
     watch: isDEV,
     devServer: {
       host: '0.0.0.0',
-      port: 9000,
+      port: 9090,
       overlay: true,
       before(app, server) {
         chokidar.watch(CONF.watch, {}).on('all', () => {
