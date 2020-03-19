@@ -162,7 +162,12 @@ module.exports = (_ = {}, argv) => {
         {
           test: /\.liquid$/,
           use: [
-            { loader: 'html-loader' },
+            {
+              loader: 'html-loader',
+              options: {
+                minimize: !isDEV
+              }
+            },
             {
               loader: path.resolve('./liquid-loader'),
               options: {
