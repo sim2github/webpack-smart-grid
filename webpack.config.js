@@ -24,6 +24,7 @@ let CONF = {
   clean: 'dist',
   watch: ['src/pages/**/*.liquid', 'src/pages/data.json'],
   pages: 'src/pages/*.liquid',
+  partials: 'src/pages/partials/',
   data: 'src/pages/data.json',
   copy: [
     {
@@ -165,6 +166,7 @@ module.exports = (_ = {}, argv) => {
             {
               loader: path.resolve('./liquid-loader'),
               options: {
+                root: CONF.partials,
                 data: require(CONF.data)
               }
             }
