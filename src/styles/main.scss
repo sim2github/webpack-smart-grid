@@ -50,7 +50,8 @@
 
 .debug {
   z-index: -9999;
-  @include debug(#fcfcfc, 1px dashed #dfdfdfdf);
+  top: 0;
+  @include debug(#fdfdfd, 1px dashed #dfdfdfdf);
 }
 
 .container {

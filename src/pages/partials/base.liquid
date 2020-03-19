@@ -10,9 +10,9 @@
 </head>
 
 <body>
-  {{> debug }}
+{% include 'debug' %}
   <main class="container">
-    {{> @partial-block }}
+      {% block content %}{% endblock %}
   </main>
 </body>
 

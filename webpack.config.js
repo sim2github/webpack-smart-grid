@@ -20,15 +20,11 @@ let CONF = {
     main: 'src/main.js'
   },
   src: 'src',
-  dist: 'build',
-  clean: 'build',
-  watch: ['src/pages/**/*.hbs'],
-  pages: 'src/pages/*.hbs',
+  dist: 'dist',
+  clean: 'dist',
+  watch: ['src/pages/**/*.liquid', 'src/pages/data.json'],
+  pages: 'src/pages/*.liquid',
   data: 'src/pages/data.json',
-  hbsOptions: {
-    helperDirs: ['src/pages/helpers'],
-    partialDirs: ['src/pages/partials']
-  },
   copy: [
     {
       from: 'src/images',
@@ -134,12 +130,12 @@ module.exports = (_ = {}, argv) => {
             template: file,
             filename: path.join(CONF.dist, `${path.parse(file).name}.html`),
             inject: 'head',
-            minify: !isDEV,
-            templateParameters(compilation) {
-              compilation.fileDependencies.add(CONF.data)
-              delete require.cache[require.resolve(CONF.data)]
-              return require(CONF.data)
-            }
+            minify: !isDEV
+            // templateParameters(compilation) {
+            //   compilation.fileDependencies.add(CONF.data)
+            //   delete require.cache[require.resolve(CONF.data)]
+            //   return require(CONF.data)
+            // }
           })
         )
       }
@@ -163,9 +159,16 @@ module.exports = (_ = {}, argv) => {
     module: {
       rules: [
         {
-          test: /\.hbs$/,
-          loader: 'handlebars-loader',
-          options: CONF.hbsOptions
+          test: /\.liquid$/,
+          use: [
+            { loader: 'html-loader' },
+            {
+              loader: path.resolve('./liquid-loader'),
+              options: {
+                data: require(CONF.data)
+              }
+            }
+          ]
         },
         {
           test: /\.js$/,

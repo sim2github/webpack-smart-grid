@@ -1,0 +1,38 @@
+{% layout "base" %}
+
+{% block content %} 
+    <div class="headline">
+        <div class="headline__logo-image"></div>
+        <h1 class="headline__h1">
+            {{ headline.title }}
+            <small class="headline__header_small">{{headline.subtitle}}</small>
+        </h1>
+    </div>
+
+    {{!-- Basic buttons --}}
+    <h2 class="section-title">Basic elements</h2>
+    <h3 class="panel-title">Buttons</h3>
+    <div class="row row_center">
+        {% for b in btn %}
+            <a href="#" class="col btn {{b.class}}">{{b.name}}</a>
+        {% endfor %}
+    </div>
+
+    <h3 class="panel-title">Input</h3>
+    <div class="row row-center">
+        <div class="col form">
+            <input class="form__control" type="text" value="" placeholder="Inactive">
+        </div>
+        <div class="col form form_error">
+            <input class="form__control" type="text" value="" placeholder="Error">
+        </div>
+        <div class="col form form_success">
+            <input class="form__control" type="text" value="" placeholder="Success">
+            <span class="form__icon fui-check"></span>
+        </div>
+        <div class="col form">
+            <input class="form__control" type="text" value="Disabled" disabled="disabled">
+        </div>
+    </div>
+
+{% endblock %}
