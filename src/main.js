@@ -2,7 +2,7 @@ import 'styles/main.scss'
 
 import 'scripts/onload'
 
-function importAll (r) {
+function importAll(r) {
   r.keys().forEach(r)
 }
 
